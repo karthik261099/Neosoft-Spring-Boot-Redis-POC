@@ -14,23 +14,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-@Configuration
-@Transactional
-public class RedissonCongif implements InitializingBean {
+//@Configuration
+public class RedissonConfigWriteThrough implements InitializingBean {
 
     private final String CACHE_NAME="users";
 
     private RedissonClient redissonClient;
 
-    Logger logger = LoggerFactory.getLogger(RedissonCongif.class);
+    Logger logger = LoggerFactory.getLogger(RedissonConfigWriteThrough.class);
 
     @Autowired
     private UserJPAAdapter userJPAAdapter;

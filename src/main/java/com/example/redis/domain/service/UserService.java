@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Transactional
@@ -26,7 +27,8 @@ public class UserService {
     }
 
     public User createUser(final User user){
-        this.userRMapCache.put(user.getId(), user);
+        long random=(long) (Math.random()*(7000-4000+1)+4000);
+        this.userRMapCache.put(random, user,60, TimeUnit.SECONDS);
         //return userPort.createUser(user);
         return user;
     }
